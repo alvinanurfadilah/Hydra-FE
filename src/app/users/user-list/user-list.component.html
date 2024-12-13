@@ -1,0 +1,90 @@
+<h2>User</h2>
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <div class="filter">Cari berdasarkan:</div>
+  <div class="search">
+    <div>
+      <p>Username:</p>
+      <input [formControl]="filterForm.controls.username">
+    </div>
+    <div>
+      <p>Jumlah Data:</p>
+      <input
+        type="number"
+        [formControl]="filterForm.controls.pageSize"
+        min="1"
+        max="5"
+      />
+    </div>
+    <div class="button-search">
+      <button type="submit">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="action">
+  <div>
+    <span>found {{ totalData }} data</span>
+  </div>
+  <div>
+    <button class="add-button" [routerLink]="['add']">Add new</button>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <td>Username</td>
+      <td>Email</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track $index) {
+    <tr app-user [user]="user"></tr>
+    } @empty { @if (isLoading) {
+    <tr>
+      <td colspan="3">Sedang mengambil data</td>
+    </tr>
+    } @else {
+    <tr>
+      <td colspan="3">Data tidak ditemukan</td>
+
+      @if (errorMessage) {
+      <td colspan="3">{{ errorMessage }}</td>
+
+      }
+    </tr>
+    } }
+  </tbody>
+  <tfoot>
+    <tr>
+      <td [attr.colspan]="3">
+        <div class="pagination">
+          <div>Page {{ filterForm.value.pageNumber }} of {{ totalPages }}</div>
+          <div class="pagination-group">
+            @for (pageNumber of [].constructor(totalPages); track $index; let
+            index = $index) {
+            <a
+              [class.active]="filterForm.value.pageNumber === index + 1"
+              [routerLink]="['.']"
+              [queryParams]="{ pageNumber: index + 1 }"
+              queryParamsHandling="merge"
+            >
+              <div
+                class="page"
+                [ngStyle]="{
+                  'background-color':
+                    filterForm.value.pageNumber === index + 1
+                      ? 'aliceblue'
+                      : 'darkgrey'
+                }"
+              >
+                {{ index + 1 }}
+              </div>
+            </a>
+            }
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>

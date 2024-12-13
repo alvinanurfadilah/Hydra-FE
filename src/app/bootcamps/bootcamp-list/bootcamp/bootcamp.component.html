@@ -1,0 +1,35 @@
+<td>{{ bootcamp.id }}</td>
+<td>{{ bootcamp.description }}</td>
+@if (!hasAdmin) { @if (progress == 1) {
+<td>{{ bootcamp.totalCandidate }}</td>
+} }
+<td>{{ bootcamp.startDate.split("T")[0] | date : dateFormat }}</td>
+<td>{{ bootcamp.endDate.split("T")[0] | date : dateFormat }}</td>
+@if (!hasAdmin) { @if (progress == 2) {
+<td>{{ bootcamp.trainerName }}</td>
+<td>{{ bootcamp.skillName }}</td>
+} }
+
+<td>
+  <div class="action">
+    @if (hasAdmin) {
+    <a class="edit" [routerLink]="['edit', bootcamp.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="detail" [routerLink]="['detail', bootcamp.id]">
+      <i class="fa-solid fa-circle-info"></i>
+    </a>
+    } @else { @if (progress == 1) {
+    <a class="yes" (click)="onActive(bootcamp.id)">
+      <i class="fa-solid fa-check"></i>
+    </a>
+    <a class="no" (click)="onCancel(bootcamp.id)">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+    } @if (progress == 2) {
+    <a class="edit" [routerLink]="['course', bootcamp.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    } }
+  </div>
+</td>

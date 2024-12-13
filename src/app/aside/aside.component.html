@@ -1,0 +1,52 @@
+<aside>
+  <div class="title">
+    <h3>Hydra Bootcamp</h3>
+  </div>
+  <div class="container-user">
+    <div class="icon-user">
+      <i class="fa-solid fa-circle-user" id="icon-user"></i>
+    </div>
+    <div class="user">
+      <h3>{{ username }}</h3>
+      <p>
+        @for (item of roles; track $index) {
+        {{ item.name }}
+        }
+      </p>
+    </div>
+  </div>
+  <div class="sidebar">
+    <a
+      [routerLink]="['dashboard']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Dashboard <i class="fa-solid fa-rectangle-list"></i>
+    </a>
+    <a [routerLink]="['candidate']" routerLinkActive="selected">
+      Candidate <i class="fa-solid fa-user-pen"></i>
+    </a>
+    @if (hasAdmin) {
+    <a [routerLink]="['bootcamp']" routerLinkActive="selected">
+      Bootcamp <i class="fa-solid fa-campground"></i>
+    </a>
+    } @else {
+    <a [routerLink]="['bootcamp/subpage']" routerLinkActive="selected">
+      Bootcamp <i class="fa-solid fa-campground"></i>
+    </a>
+    }
+
+    <a [routerLink]="['category']" routerLinkActive="selected">
+      Category <i class="fa-solid fa-layer-group"></i>
+    </a>
+    <a [routerLink]="['skill']" routerLinkActive="selected">
+      Skill <i class="fa-solid fa-file-code"></i>
+    </a>
+    <a [routerLink]="['trainer']" routerLinkActive="selected">
+      Trainer <i class="fa-solid fa-person-chalkboard"></i>
+    </a>
+    <a [routerLink]="['user']" routerLinkActive="selected">
+      User <i class="fa-solid fa-users"></i>
+    </a>
+  </div>
+</aside>

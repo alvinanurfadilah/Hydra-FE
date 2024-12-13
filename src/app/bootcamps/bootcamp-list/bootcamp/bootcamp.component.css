@@ -1,0 +1,59 @@
+td {
+  padding: 0.7rem;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 40px;
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 40px;
+  background-color: orange;
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.yes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 40px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 40px;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}

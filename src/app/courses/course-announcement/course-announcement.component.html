@@ -1,0 +1,37 @@
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  @if(endBootcamp) {
+  <div class="form-container">
+    <div class="form-title">
+      <h3>Bootcamp 3 belum dapat diselesaikan</h3>
+    </div>
+    <div class="form-control">
+      <p>Mohon untuk pastikan:</p>
+    </div>
+    <div class="form-control">
+      <p>Tidak ada materi yang sedang direncanakan</p>
+    </div>
+    <div class="form-control">
+      <p>Tidak ada materi yang sedang aktif diajarkan oleh trainer</p>
+    </div>
+  </div>
+  } @else {
+  <div class="form-container">
+    <div class="form-title">
+      <h3>Selesaikan Bootcamp Class 3?</h3>
+    </div>
+    <div class="form-control">
+      <p>Apakah tanggal selesai untuk bootcamp ini benar?</p>
+    </div>
+    <div class="form-control">
+      <p>Jika tidak sesuai, mohon untuk sesuaikan tanggal selesainya.</p>
+    </div>
+    <div class="form-control">
+      <label for="">End Date</label>
+      <input type="date" [formControl]="form.controls.endDate" />
+    </div>
+    <div class="form-button">
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+  }
+</form>

@@ -1,0 +1,27 @@
+<h2>Category / {{ id ? "Edit" : "Add" }}</h2>
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>{{ id ? "Edit Candidate" : "Tambah Candidate Baru" }}</h3>
+    </div>
+    <div class="form-control">
+      <label for="">Name</label>
+      <input name="" id="" [formControl]="form.controls.name" />
+    </div>
+    <div class="form-control">
+      <label for="">Level</label>
+      <select type="text" [formControl]="form.controls.level">
+        @for (level of levelList; track $index) {
+        <option [value]="level">{{ level }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">Description</label>
+      <input type="text" [formControl]="form.controls.description" />
+    </div>
+    <div class="form-button">
+        <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>

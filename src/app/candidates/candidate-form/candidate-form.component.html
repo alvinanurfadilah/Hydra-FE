@@ -1,0 +1,52 @@
+<h2>Candidate / {{ id ? "Edit" : "Add" }}</h2>
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+        <h3>{{ id ? 'Edit Candidate' : 'Tambah Candidate Baru' }}</h3> 
+    </div>
+    <div class="form-control">
+      <label for="">Bootcamp</label>
+      <select name="" id="" [formControl]="form.controls.bootcampClassId">
+        <!-- <option [value]="null">No Specific Bootcamp</option> -->
+        @for (bootcamp of getAllBootcamps; track $index) {
+          <option [value]="bootcamp.id">{{bootcamp.description}}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">First Name</label>
+      <input type="text" [formControl]="form.controls.firstName" />
+    </div>
+    <div class="form-control">
+      <label for="">Last Name</label>
+      <input type="text" [formControl]="form.controls.lastName" />
+    </div>
+    <div class="form-control">
+      <label for="">Gender</label>
+      <select [formControl]="form.controls.gender">
+        @for (gender of genderDropdown; track $index) {
+          <option [value]="gender.value">{{gender.label}}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">Birth Date</label>
+      <input type="date" [formControl]="form.controls.birthDate" />
+    </div>
+    <div class="form-control">
+      <label for="">Address</label>
+      <input type="text" [formControl]="form.controls.address" />
+    </div>
+    <div class="form-control">
+      <label for="">Domicile</label>
+      <input type="text" [formControl]="form.controls.domicile" />
+    </div>
+    <div class="form-control">
+      <label for="">Phone Number</label>
+      <input type="text" [formControl]="form.controls.phoneNumber" />
+    </div>
+    <div class="form-button">
+        <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>

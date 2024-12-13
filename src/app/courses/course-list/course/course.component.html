@@ -1,0 +1,39 @@
+<td>{{ course.skill }}</td>
+<td>{{ course.trainer }}</td>
+<td>{{ course.startDate | date : dateFormat }}</td>
+<td>{{ course.endDate | date : dateFormat }}</td>
+<td>{{ course.progress }}</td>
+<td>
+  @if (course.evaluationDate != null) {
+  {{ evaluationDate | date : dateFormat }}
+  } @else {
+  {{ evaluationDate }}
+  }
+</td>
+<td>
+  <a class="edit" (click)="openModal()">
+    <i class="fa-solid fa-pen-to-square"></i>
+  </a>
+</td>
+
+<div class="modal">
+  <form action="" class="form-modal" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        <td>Status</td>
+        <td>
+          <select name="" id="" [formControl]="form.controls.progress">
+            <option value="">No Specific Status</option>
+            <option [value]="3">Completed</option>
+            <option [value]="2">Active</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Tanggal Dinilai</td>
+        <td><input type="date" [formControl]="form.controls.evaluationDate"></td>
+      </tr>
+    </table>
+    <button type="submit" class="close-merchandise">Submit</button>
+  </form>
+</div>

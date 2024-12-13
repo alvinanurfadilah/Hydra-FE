@@ -1,0 +1,16 @@
+<td>{{ candidate.fullName }}</td>
+<td>{{ candidate.bootcampId }}</td>
+<td>{{ candidate.phoneNumber }}</td>
+<td>{{ candidate.domicile }}</td>
+@if(hasAdmin) {
+<td>
+  <div class="action">
+    <a class="edit" [routerLink]="['edit', candidate.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="detail" [routerLink]="['detail', candidate.id]">
+      <i class="fa-solid fa-circle-info"></i>
+    </a>
+  </div>
+</td>
+}

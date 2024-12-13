@@ -1,0 +1,37 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 600px;
+    flex-direction: column;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+input {
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid black;
+    height: 30px;
+    width: 200px;
+}
+
+button {
+    margin: 10px 70px 0 70px;
+    width: 80px;
+    height: 25px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}

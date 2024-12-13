@@ -1,0 +1,32 @@
+<h2>Skill / {{ id ? "Edit" : "Add" }}</h2>
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>{{ id ? "Edit Candidate" : "Tambah Candidate Baru" }}</h3>
+    </div>
+    <div class="form-control">
+        <label for="">Id</label>
+        <input name="" id="" [formControl]="form.controls.id" [readOnly]="id ? 'readonly' : null" />
+      </div>
+    <div class="form-control">
+      <label for="">Name</label>
+      <input name="" id="" [formControl]="form.controls.name" />
+    </div>
+    <div class="form-control">
+        <label for="">Description</label>
+        <input name="" id="" [formControl]="form.controls.description" />
+      </div>
+    <div class="form-control">
+      <label for="">Category</label>
+      <select type="text" [formControl]="form.controls.categoryId">
+        <option value="">No Specific Category</option>
+        @for (category of categoryDropdown; track $index) {
+        <option [value]="category.id">{{ category.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-button">
+        <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>

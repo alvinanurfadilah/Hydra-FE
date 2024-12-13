@@ -1,0 +1,12 @@
+<td>{{ user.username }}</td>
+<td>{{ user.email }}</td>
+<td>
+  <div class="action">
+    <a class="edit" [routerLink]="['edit', user.username]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="remove" (click)="onDelete(user.username)">
+      <i class="fa-solid fa-trash"></i>
+    </a>
+  </div>
+</td>

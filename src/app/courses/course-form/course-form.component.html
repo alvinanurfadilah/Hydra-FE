@@ -1,0 +1,39 @@
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>Tambahkan Materi Baru</h3>
+    </div>
+    <div class="form-control">
+      <label for="">Bootcamp</label>
+      <input type="text" [formControl]="form.controls.bootcampId" readonly />
+    </div>
+    <div class="form-control">
+      <label for="">Materi</label>
+      <select (change)="onChange($event)" [formControl]="form.controls.skillId">
+        <option [value]="">No Specific Materi</option>
+        @for (skill of skills; track $index) {
+        <option [value]="skill.id">{{ skill.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">Trainer</label>
+      <select name="" id="" [formControl]="form.controls.trainerId">
+        @for (trainer of trainers; track $index) {
+        <option [value]="trainer.id">{{ trainer.firstName }} {{trainer.lastName}}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">Tanggal Mulai</label>
+      <input type="date" name="" id="" [formControl]="form.controls.startDate" />
+    </div>
+    <div class="form-control">
+      <label for="">Tanggal Selesai</label>
+      <input type="date" [formControl]="form.controls.endDate" />
+    </div>
+    <div class="form-button">
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>

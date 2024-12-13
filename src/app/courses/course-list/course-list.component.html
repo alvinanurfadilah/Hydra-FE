@@ -1,0 +1,24 @@
+<h3>Jadwal Bootcamp {{queryParams}}</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Materi</th>
+            <th>Trainer</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal Selesai</th>
+            <th>Status</th>
+            <th>Tanggal Dinilai</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (course of courses; track $index) {
+            <tr app-course [course]="course"></tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7"></td>
+        </tr>
+    </tfoot>
+</table>

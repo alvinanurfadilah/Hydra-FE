@@ -1,0 +1,13 @@
+<td>{{ skill.name }}</td>
+<td>{{ skill.category }}</td>
+<td>{{ skill.description }}</td>
+<td>
+  <div class="action">
+    <a class="edit" [routerLink]="['edit', skill.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="remove" (click)="onDelete(skill.id)">
+      <i class="fa-solid fa-trash"></i>
+    </a>
+  </div>
+</td>

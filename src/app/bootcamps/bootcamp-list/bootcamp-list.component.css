@@ -1,0 +1,109 @@
+h2 {
+  margin-left: 30px;
+}
+
+.action-button-trainer {
+  margin-left: 30px;
+}
+
+.action-button-trainer button {
+  margin-right: 15px;
+}
+
+.filter {
+  padding: 10px 0 0 10px;
+  margin: 20px 30px 0 30px;
+  background-color: lightgray;
+  border-radius: 5px 5px 0 0;
+}
+
+.search {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  background-color: lightgray;
+  height: 100px;
+  margin: 0 30px 10px 30px;
+  border-radius: 0 0 5px 5px;
+}
+
+.button-search {
+  margin-top: 35px;
+}
+
+.action {
+  display: flex;
+  margin: 0 30px 0 30px;
+  justify-content: space-between;
+}
+
+span {
+  font-style: italic;
+}
+
+.add-button {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+table {
+  margin: 10px 30px 30px 30px;
+  border-collapse: collapse;
+  width: 95.5%;
+}
+
+table thead {
+  height: 45px;
+  background-color: darkgrey;
+  font-weight: bold;
+}
+
+table td {
+  padding: 0.7rem;
+}
+
+table tfoot {
+  background-color: darkgrey;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-group {
+  display: flex;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+input {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

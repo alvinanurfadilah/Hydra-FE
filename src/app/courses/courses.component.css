@@ -1,0 +1,62 @@
+h2 {
+  margin-left: 30px;
+}
+
+.container {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.sidebar {
+  background-color: lightgray;
+  height: 350px;
+  width: 300px;
+  padding: 20px;
+}
+
+.sidebar div {
+  margin-bottom: 50px;
+}
+
+.main {
+  width: 950px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a.selected {
+  position: relative;
+}
+
+a.selected::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Sesuaikan dengan jarak yang diinginkan dari teks */
+  width: 200px;
+  height: 1px; /* Sesuaikan dengan ketebalan garis */
+  background-color: black;
+}
+
+
+.action-button-trainer {
+  margin-left: 30px;
+}
+
+.action-button-trainer button {
+  margin-right: 15px;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+}

@@ -1,0 +1,53 @@
+<h2>Trainer / {{ id ? "Edit" : "Add" }}</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>{{ id ? "Edit Trainer" : "Tambah Trainer Baru" }}</h3>
+    </div>
+    <div class="form-control">
+      <label for="">Username</label>
+      <select name="" id="" [formControl]="form.controls.username">
+        <!-- <option [value]="null">No Specific Bootcamp</option> -->
+        @for (user of getAllUser; track $index) {
+          <option [value]="user.username">{{user.username}}</option>
+        }
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">First Name</label>
+      <input name="" id="" [formControl]="form.controls.firstName" />
+    </div>
+    <div class="form-control">
+      <label for="">Last Name</label>
+      <input name="" id="" [formControl]="form.controls.lastName" />
+    </div>
+    <div class="form-control">
+      <label for="">Birth Date</label>
+      <input
+        type="date"
+        name=""
+        id=""
+        [formControl]="form.controls.birthDate"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Gender</label>
+      <input name="" id="" [formControl]="form.controls.gender" />
+    </div>
+    <div class="form-control">
+      <label for="">Phone Number</label>
+      <input name="" id="" [formControl]="form.controls.phoneNumber" />
+    </div>
+    <div class="form-control">
+      <label>Is Available</label>
+      <input type="text" [formControl]="form.controls.isAvailable">
+    </div>
+    <div class="form-control">
+      <label>Is Active</label>
+      <input type="text" [formControl]="form.controls.isActive">
+    </div>
+    <div class="form-button">
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+<td>{{ category.name }}</td>
+<td>{{ category.level }}</td>
+<td>{{ category.description }}</td>
+<td>
+  <div class="action">
+    <a class="edit" [routerLink]="['edit', category.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="remove" (click)="onDelete(category.id)">
+      <i class="fa-solid fa-trash"></i>
+    </a>
+  </div>
+</td>

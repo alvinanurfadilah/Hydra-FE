@@ -1,0 +1,15 @@
+<td>{{ trainer.username }}</td>
+<td>{{ trainer.firstName + " " + trainer.lastName }}</td>
+<td>{{ trainer.phoneNumber }}</td>
+<td>{{ trainer.isAvailable ? "Yes" : "No" }}</td>
+<td>{{ trainer.isActive ? "Yes" : "No" }}</td>
+<td>
+  <div class="action">
+    <a class="edit" [routerLink]="['edit', trainer.id]">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a class="remove" (click)="onDelete(trainer.id)">
+      <i class="fa-solid fa-trash"></i>
+    </a>
+  </div>
+</td>

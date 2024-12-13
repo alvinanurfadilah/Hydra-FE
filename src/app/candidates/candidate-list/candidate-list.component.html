@@ -1,0 +1,104 @@
+<h2>Candidate</h2>
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <div class="filter">Cari berdasarkan:</div>
+  <div class="search">
+    <div>
+      <p>Nama Lengkap:</p>
+      <input
+        type="text"
+        id="fullName"
+        [formControl]="filterForm.controls.fullName"
+      />
+    </div>
+    <div>
+      <p>Batch Bootcamp:</p>
+      <input type="number" [formControl]="filterForm.controls.bootcampId" />
+    </div>
+    <div>
+      <p>Jumlah Data:</p>
+      <input
+        type="number"
+        [formControl]="filterForm.controls.pageSize"
+        min="1"
+        max="5"
+      />
+    </div>
+    <div class="button-search">
+      <button type="submit">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="action">
+  <div>
+    <span>found {{ totalData }} data</span>
+  </div>
+  <div>
+    @if (hasAdmin) {
+    <button class="add-button" [routerLink]="['add']">Add new</button>
+    }
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <td>Nama Lengkap</td>
+      <td>Bootcamp</td>
+      <td>Nomor Kontak</td>
+      <td>Domisili</td>
+      @if (hasAdmin) {
+      <td>Action</td>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (candidate of candidates; track $index) {
+    <tr app-candidate [candidate]="candidate"></tr>
+    } @empty { @if (isLoading) {
+    <tr>
+      <td [attr.colspan]="hasAdmin ? 5 : 4">Sedang mengambil data</td>
+    </tr>
+    } @else {
+    <tr>
+      <td [attr.colspan]="hasAdmin ? 5 : 4">Data tidak ditemukan</td>
+
+      @if (errorMessage) {
+      <td [attr.colspan]="hasAdmin ? 5 : 4">{{ errorMessage }}</td>
+
+      }
+    </tr>
+    } }
+  </tbody>
+  <tfoot>
+    <tr>
+      <td [attr.colspan]="hasAdmin ? 5 : 4">
+        <div class="pagination">
+          <div>Page {{ filterForm.value.pageNumber }} of {{ totalPages }}</div>
+          <div class="pagination-group">
+            @for (pageNumber of [].constructor(totalPages); track $index; let
+            index = $index) {
+            <a
+              [class.active]="filterForm.value.pageNumber === index + 1"
+              [routerLink]="['.']"
+              [queryParams]="{ pageNumber: index + 1 }"
+              queryParamsHandling="merge"
+            >
+              <div
+                class="page"
+                [ngStyle]="{
+                  'background-color':
+                    filterForm.value.pageNumber === index + 1
+                      ? 'aliceblue'
+                      : 'darkgrey'
+                }"
+              >
+                {{ index + 1 }}
+              </div>
+            </a>
+            }
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,27 @@
+<h2>Bootcamp / Detail</h2>
+<form action="">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>Detail Data Bootcamp</h3>
+    </div>
+    <div class="form-control">
+      <label for="">description</label>
+      <span>{{ detailBootcamp.description }}</span>
+    </div>
+    <div class="form-control">
+      <label for="">Start Date</label>
+      <span>{{ detailBootcamp.startDate }}</span>
+    </div>
+    <div class="form-control">
+      <label for="">End Date</label>
+      <span>{{ detailBootcamp.endDate }}</span>
+    </div>
+    <div class="form-control">
+      <label for="">Progress</label>
+      <span>{{ detailBootcamp.progress }}</span>
+    </div>
+    <div class="form-button">
+      <button type="submit" class="submit-button" (click)="onBack()">Ok</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<h2>Bootcamp / {{ bootcampId }}</h2>
+<div class="action-button-trainer">
+  @if (!hasAdmin) {
+  <button
+    (click)="setProgress(1)"
+    [routerLink]="['/subpage']"
+    [queryParams]="{ progress: 1 }"
+  >
+    Planned
+  </button>
+  <button
+    (click)="setProgress(2)"
+    [routerLink]="['/subpage']"
+    [queryParams]="{ progress: 2 }"
+  >
+    Active
+  </button>
+  <button
+    (click)="setProgress(3)"
+    [routerLink]="['/subpage']"
+    [queryParams]="{ progress: 3 }"
+  >
+    Completed
+  </button>
+  }
+</div>
+<div class="container">
+  <div class="sidebar">
+    <a
+      [routerLink]="['jadwal']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <div>Jadwal</div>
+    </a>
+    <a
+      [routerLink]="['materi']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <div>Menambahkan Materi</div>
+    </a>
+    <a
+      [routerLink]="['selesai']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <div>Menyelesaikan Kelas</div>
+    </a>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>

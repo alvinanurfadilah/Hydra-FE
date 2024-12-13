@@ -1,0 +1,24 @@
+<h2>Bootcamp / {{ id ? "Edit" : "Add" }}</h2>
+
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="form-title">
+      <h3>{{ id ? 'Edit Bootcamp' : 'Tambah Bootcamp Baru' }}</h3>
+    </div>
+    <div class="form-control">
+      <label for="">Description</label>
+      <input type="text" [formControl]="form.controls.description" />
+    </div>
+    <div class="form-control">
+      <label for="">Start Date</label>
+      <input type="date" [formControl]="form.controls.startDate" />
+    </div>
+    <div class="form-control">
+      <label for="">End Date</label>
+      <input type="date" [formControl]="form.controls.endDate" />
+    </div>
+    <div class="form-button">
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>
